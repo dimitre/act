@@ -1,0 +1,128 @@
+{
+	"name": "libsof",
+	"version": "0.1.2",
+	"externalDependencies": {
+		// "assimp": {
+		// 	"repository": "https://github.com/assimp/assimp",
+		// 	"tag" : "v5.2.5"
+		// }
+		// ,
+		// "glfw": {
+		//    "repository": "https://github.com/glfw/glfw",
+		//    "tag" : "3.3.8"
+		// }
+		// ,
+
+		"poco": {
+			"repository" : "https://github.com/pocoproject/poco",
+			"tag" : "poco-1.12.4-release"
+		}
+		// ,
+		// "glm": {
+		// 	"repository" : "https://github.com/g-truc/glm"
+ 		// }
+		// ,
+		// "glew": {
+		// 	"repository" : "https://github.com/nigels-com/glew/releases/download/glew-2.2.0/glew-2.2.0.zip"
+		// 	// "tag" : "glew-2.2.0"
+ 		// }
+	},
+
+	"targets" : {
+		// "assimp": {
+
+		// 	"kind": "cmakeProject",
+		// 	"defines": [
+		// 		"BUILD_SHARED_LIBS=OFF",
+		// 		"ASSIMP_BUILD_TESTS=0",
+		// 		"ASSIMP_BUILD_SAMPLES=0",
+		// 		"ASSIMP_BUILD_3MF_IMPORTER=0",
+		// 		"CMAKE_COMPILE_WARNING_AS_ERROR=0",
+		// 		"CMAKE_OSX_DEPLOYMENT_TARGET=10.9",
+		// 		// "CMAKE_C_FLAGS=-arch arm64 -arch x86_64 -O3 -DNDEBUG -funroll-loops -Werror",
+		// 		"CMAKE_C_FLAGS=-fPIC",
+		// 		"CMAKE_CXX_FLAGS=-arch arm64 -arch x86_64 -stdlib=libc++ -O3 -DNDEBUG -funroll-loops -std=c++11 -Werror"
+		// 	],
+		// 	// "defaultRunArguments": [
+		// 	// 	"BUILD_SHARED_LIBS=OFF",
+		// 	// 	"ASSIMP_BUILD_TESTS=0",
+		// 	// 	"ASSIMP_BUILD_SAMPLES=0",
+		// 	// 	"ASSIMP_BUILD_3MF_IMPORTER=0"
+		// 	// ],
+		// 	"location": "${external:assimp}",
+		// 	"recheck": false,
+		// 	"rebuild": false
+		// }
+
+
+		// , 
+		// "glfw": {
+		// 	"kind": "cmakeProject",
+		// 	"location": "${external:glfw}",
+		// 	"recheck": false,
+		// 	"rebuild": false
+		// }
+		// ,
+		"poco": {
+			"kind": "cmakeProject",
+			"location": "${external:poco}",
+			"recheck": false,
+			"rebuild": false
+		}
+		// ,
+		// "glm": {
+		// 	"kind": "cmakeProject",
+		// 	"location": "${external:glm}",
+		// 	"recheck": false,
+		// 	"rebuild": false
+		// }
+		// ,
+		// "glewpre": {
+		// 	"kind": "script",
+		// 	"file": "${external:glew}/cmake-testbuild.sh"
+		// }
+		// ,
+		// "glew": {
+		// 	"kind": "cmakeProject",
+		// 	"location": "${external:glew}/build/cmake",
+		// 	"recheck": false,
+		// 	"rebuild": true
+		// }
+
+		
+	}
+	// ,
+	
+	// "abstracts:*": {
+	// 	"language": "C++",
+	// 	"settings:Cxx": {
+	// 		"staticRuntimeLibrary[:windows]": true,
+	// 		"cppStandard": "c++20",
+	// 		"warningsPreset": "pedantic",
+	// 		"includeDirs": "include"
+	// 	}
+	// },
+	
+
+	// "distribution": {
+	// 	"modules-project": {
+	// 		"kind": "bundle",
+	// 		"buildTargets": [
+	// 			"assimp"
+	// 		]
+	// 	}
+	// }	
+	// ,
+
+	,
+	"distribution": {
+		"ofApo": {
+			"kind": "archive",
+			"condition": "[:macos]",
+			"format": "zip",
+			"include": [
+				"${external:poco}/**"
+			]
+		}
+	}
+}
