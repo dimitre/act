@@ -52,7 +52,9 @@ jobs:
         shell: bash
         run: |
           ./chalet --version
-          cd act
+          pwd
+          cd /home/runner/work/act/act
+          pwd
           ../chalet configure -t llvm -a auto
           ../chalet build
           ../chalet bundle
