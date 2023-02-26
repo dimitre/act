@@ -1,26 +1,26 @@
 {
 	"name": "libsof",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"externalDependencies": {
 		// "assimp": {
 		// 	"repository": "https://github.com/assimp/assimp",
 		// 	"tag" : "v5.2.5"
 		// }
 		// ,
-		"glfw": {
-		   "repository": "https://github.com/glfw/glfw",
-		   "tag" : "3.3.8"
-		}
-		,
+		// "glfw": {
+		//    "repository": "https://github.com/glfw/glfw",
+		//    "tag" : "3.3.8"
+		// }
+		// ,
 
 		"poco": {
 			"repository" : "https://github.com/pocoproject/poco",
 			"tag" : "poco-1.12.4-release"
 		}
-		,
-		"glm": {
-			"repository" : "https://github.com/g-truc/glm"
- 		}
+		// ,
+		// "glm": {
+		// 	"repository" : "https://github.com/g-truc/glm"
+ 		// }
 		// ,
 		// "glew": {
 		// 	"repository" : "https://github.com/nigels-com/glew/releases/download/glew-2.2.0/glew-2.2.0.zip"
