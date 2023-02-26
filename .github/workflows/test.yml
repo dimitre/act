@@ -53,8 +53,10 @@ jobs:
         run: |
           ./chalet --version
           pwd
+          ls
           cd /home/runner/work/act/act
           pwd
+          ls
           ./chalet configure -t llvm -a auto
           ./chalet build
           ./chalet bundle
