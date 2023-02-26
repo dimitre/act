@@ -4,6 +4,7 @@
 	"externalDependencies": {
 		"poco": {
 			"repository" : "https://github.com/pocoproject/poco",
+			"kind" : "git",
 			"tag" : "poco-1.12.4-release"
 		}
 	},
