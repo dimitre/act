@@ -29,7 +29,10 @@ jobs:
         env:
           cache-name: cache-chalet
         with:
-          path: **
+          path: |
+            chalet/**
+            chaletbuild/**
+
           key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('**/*.cpp') }}
           restore-keys: |
             ${{ runner.os }}-${{ env.cache-name }}-
@@ -37,7 +40,7 @@ jobs:
       - if: ${{ steps.cache-chalet.outputs.cache-hit != 'true' }}
         - name: Get Chalet
           uses: dimitre/get-chalet@v2
-          
+
       - name: Is this love?
         shell: bash
         run: |
