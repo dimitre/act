@@ -38,16 +38,18 @@ jobs:
       - if: ${{ steps.cache-chalet.outputs.cache-hit != 'true' }}
         name: Get Chalet
         uses: dimitre/get-chalet@v2
-
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Is this love?
+      - if: ${{ steps.cache-chalet.outputs.cache-hit != 'true' }}
+        name: Move and Link
         shell: bash
         run: |
           mv chalet chaletbuild
           # ./chaletbuild/build/**/chalet --version
           ln -s ./chaletbuild/build/**/chalet .
+          ./chalet --version
+
+      - name: Is this love?
+        shell: bash
+        run: |
           ./chalet --version
           ./chalet configure -t llvm -a auto
           ./chalet build
