@@ -19,9 +19,18 @@
 	}
 	,
 	"distribution": {
-		"ofApothecary": {
+		"mac": {
 			"kind": "archive",
 			"condition": "[:macos]",
+			"format": "zip",
+			"include": [
+				"${external:poco}/**"
+			]
+		}
+		,
+		"linux": {
+			"kind": "archive",
+			"condition": "[:linux]",
 			"format": "zip",
 			"include": [
 				"${external:poco}/**"
