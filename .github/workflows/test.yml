@@ -39,6 +39,9 @@ jobs:
         name: Get Chalet
         uses: dimitre/get-chalet@v2
 
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - name: Is this love?
         shell: bash
         run: |
