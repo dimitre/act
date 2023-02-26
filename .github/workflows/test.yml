@@ -23,6 +23,7 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
+      - uses: actions/checkout@v3
       - name: Cache Chalet
         id: cache-chalet
         uses: actions/cache@v3
