@@ -43,6 +43,9 @@ jobs:
         shell: bash
         run: |
           mv chalet chaletbuild
-          ./chaletbuild/build/**/chalet --version
+          # ./chaletbuild/build/**/chalet --version
           ln -s ./chaletbuild/build/**/chalet .
           ./chalet --version
+          ./chalet configure -t llvm -a auto
+          ./chalet build
+          ./chalet
