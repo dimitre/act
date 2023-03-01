@@ -81,11 +81,21 @@ jobs:
         run: |
           ls -alFR
 
-      - name: "Upload assets"
-        uses: softprops/action-gh-release@v1
+      - name: Update Release
+        uses: johnwbyrd/update-release@v1.0.0
         with:
-          files: |
-            dist/mac.zip
           token: ${{ secrets.GITHUB_TOKEN }}
-          draft: true
+          tag: nightly
+          release: nightly
           prerelease: false
+          files: dist/mac.zip
+        # if: github.repository == 'openframeworks/apothecary' && github.event_name == 'push' && github.ref == 'refs/heads/master'
+        
+      # - name: "Upload assets"
+      #   uses: softprops/action-gh-release@v1
+      #   with:
+      #     files: |
+      #       dist/mac.zip
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     draft: true
+      #     prerelease: false
