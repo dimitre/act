@@ -29,7 +29,6 @@ jobs:
         run: |
           brew update
           brew install llvm
-          brew linkapps llvm
       - uses: actions/checkout@v3
       - name: Cache Chalet
         id: cache-chalet
