@@ -28,7 +28,6 @@ jobs:
         id: cache-apt    
         with:
           packages: llvm
-        version: 1.0
         # name: Brew LLVM
         # shell: bash
         # run: |
