@@ -63,12 +63,12 @@ jobs:
         run: |
           mv chalet chaletbuild
           # ./chaletbuild/build/**/chalet --version
-          ln -s ./chaletbuild/build/**/chalet .
           ./chalet --version
 
       - name: Is this love?
         shell: bash
         run: |
+          ln -s ./chaletbuild/build/**/chalet .
           ./chalet --version
           # pwd
           # ls
