@@ -17,7 +17,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        # os: [ubuntu-latest, macos-latest]
+        os: [macos-latest]
         # os: [ubuntu-latest] , 
 
     runs-on: ${{ matrix.os }}
@@ -60,6 +61,6 @@ jobs:
           ./chalet --version
           # pwd
           # ls
-          ./chalet configure -t llvm -a auto
+          # ./chalet configure -t llvm -a auto
           ./chalet build
           ./chalet bundle
