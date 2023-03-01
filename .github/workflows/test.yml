@@ -38,6 +38,7 @@ jobs:
           cache-name: cache-chalet
         with:
           path: |
+            build/**
             chalet/**
             chaletbuild/**
           key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('**/*.cpp') }}
@@ -64,3 +65,4 @@ jobs:
           # ./chalet configure -t llvm -a auto
           ./chalet build
           ./chalet bundle
+          ls -alF
