@@ -24,14 +24,12 @@ jobs:
 
     steps:
       - if: runner.os == 'macOS'
-        uses: awalsh128/cache-apt-pkgs-action@latest
-        id: cache-apt    
-        with:
-          packages: llvm
-        # name: Brew LLVM
-        # shell: bash
-        # run: |
-          # brew install llvm
+        name: Brew LLVM
+        shell: bash
+        run: |
+          brew update
+          brew install llvm
+          brew linkapps llvm
       - uses: actions/checkout@v3
       - name: Cache Chalet
         id: cache-chalet
