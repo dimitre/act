@@ -50,6 +50,7 @@ jobs:
           cache-name: cache-build
         with:
           path: |
+            chalet_external/**
             build/**
           key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('build/**/*.cpp') }}
           restore-keys: |
