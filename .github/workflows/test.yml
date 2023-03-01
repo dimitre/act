@@ -76,3 +76,11 @@ jobs:
           ./chalet build
           ./chalet bundle
           ls -alF
+      - name: "Upload assets"
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            ./dist/mac.zip
+          token: ${{ secrets.GITHUB_TOKEN }}
+          draft: true
+          prerelease: false
