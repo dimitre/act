@@ -75,12 +75,17 @@ jobs:
           # ./chalet configure -t llvm -a auto
           ./chalet build
           ./chalet bundle
-          ls -alF
+          # ls -alF
+      - name: LS
+        shell: bash
+        run: |
+          ls -alFR
+
       - name: "Upload assets"
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            ./dist/mac.zip
+            dist/mac.zip
           token: ${{ secrets.GITHUB_TOKEN }}
           draft: true
           prerelease: false
