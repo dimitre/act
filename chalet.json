@@ -2,6 +2,12 @@
 	"name": "libsof",
 	"version": "0.1.2",
 	"externalDependencies": {
+		"assimp": {
+			"repository": "https://github.com/assimp/assimp",
+			// "tag" : "v5.2.5",
+			"kind" : "git"
+		}
+		,		
 		"poco": {
 			"repository" : "https://github.com/pocoproject/poco",
 			"kind" : "git",
@@ -10,12 +16,37 @@
 	},
 
 	"targets" : {
+		"assimp": {
+			"kind": "cmakeProject",
+			"defines": [
+				"BUILD_SHARED_LIBS=OFF",
+				"ASSIMP_BUILD_TESTS=0",
+				"ASSIMP_BUILD_SAMPLES=0",
+				"ASSIMP_BUILD_3MF_IMPORTER=0",
+				// "CMAKE_COMPILE_WARNING_AS_ERROR=0",
+				"CMAKE_OSX_DEPLOYMENT_TARGET=10.9",
+				// "CMAKE_C_FLAGS=-arch arm64 -arch x86_64 -O3 -DNDEBUG -funroll-loops",
+				"CMAKE_C_FLAGS=-fPIC",
+				"CMAKE_CXX_FLAGS=-arch arm64 -arch x86_64 -stdlib=libc++ -O3 -DNDEBUG -funroll-loops -std=c++11 "
+			],
+			// "defaultRunArguments": [
+			// 	"BUILD_SHARED_LIBS=OFF",
+			// 	"ASSIMP_BUILD_TESTS=0",
+			// 	"ASSIMP_BUILD_SAMPLES=0",
+			// 	"ASSIMP_BUILD_3MF_IMPORTER=0"
+			// ],
+			"location": "${external:assimp}",
+			"recheck": false,
+			"rebuild": false
+		}
+		,
 		"poco": {
 			"kind": "cmakeProject",
 			"location": "${external:poco}",
 			"recheck": false,
 			"rebuild": false
 		}
+
 	}
 	,
 	"distribution": {
@@ -24,7 +55,8 @@
 			"condition": "[:macos]",
 			"format": "zip",
 			"include": [
-				"${external:poco}/**"
+				// "${external:poco}/**",
+				"${externalBuild:assimp}/**"
 			]
 		}
 		,
@@ -33,7 +65,8 @@
 			"condition": "[:linux]",
 			"format": "zip",
 			"include": [
-				"${external:poco}/**"
+				"${external:poco}/**",
+				"${external:assimp}/lib/**"
 			]
 		}
 	}

@@ -24,12 +24,12 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-      - if: runner.os == 'macOS'
-        name: Brew LLVM
-        shell: bash
-        run: |
-          brew update
-          brew install llvm
+      # - if: runner.os == 'macOS'
+      #   name: Brew LLVM
+      #   shell: bash
+      #   run: |
+      #     brew update
+      #     brew install llvm
       - uses: actions/checkout@v3
       - name: Cache Chalet
         id: cache-chalet
