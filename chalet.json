@@ -55,7 +55,7 @@
 			"condition": "[:macos]",
 			"format": "zip",
 			"include": [
-				// "${external:poco}/**",
+				// "${externalBuild:poco}/**",
 				"${externalBuild:assimp}/**"
 			]
 		}
@@ -65,8 +65,8 @@
 			"condition": "[:linux]",
 			"format": "zip",
 			"include": [
-				"${external:poco}/**",
-				"${external:assimp}/lib/**"
+				"${externalBuild:poco}/**",
+				"${externalBuild:assimp}/lib/**"
 			]
 		}
 	}
